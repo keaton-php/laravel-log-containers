@@ -1,0 +1,70 @@
+{
+    "name": "keaton-php/laravel-log-containers",
+    "description": "Structured application logging for Laravel: named log containers whose entries are queryable rows, with timed scope sessions, sticky model tags, execution correlation, code-defined watches and a fake/assert test API.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["laravel", "logging", "structured-logging", "observability", "audit-log"],
+    "homepage": "https://github.com/keaton-php/laravel-log-containers",
+    "support": {
+        "issues": "https://github.com/keaton-php/laravel-log-containers/issues",
+        "source": "https://github.com/keaton-php/laravel-log-containers",
+        "docs": "https://kevineaton.dev/docs/laravel-log-containers/",
+        "security": "https://github.com/keaton-php/laravel-log-containers/security/policy"
+    },
+    "authors": [
+        {
+            "name": "Kevin Eaton",
+            "email": "kevin@kevineaton.dev",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "illuminate/console": "^11.0||^12.0||^13.0",
+        "illuminate/contracts": "^11.0||^12.0||^13.0",
+        "illuminate/database": "^11.0||^12.0||^13.0",
+        "illuminate/support": "^11.0||^12.0||^13.0",
+        "ramsey/uuid": "^4.7"
+    },
+    "require-dev": {
+        "larastan/larastan": "^3.0",
+        "laravel/pint": "^1.18",
+        "orchestra/testbench": "^9.0||^10.0||^11.0",
+        "phpunit/phpunit": "^11.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Keaton\\LogContainers\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Keaton\\LogContainers\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "analyse": "vendor/bin/phpstan analyse --memory-limit=1G",
+        "format": "vendor/bin/pint",
+        "lint": "vendor/bin/pint --test"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Keaton\\LogContainers\\LogContainersServiceProvider"
+            ],
+            "aliases": {
+                "LogContainers": "Keaton\\LogContainers\\Facades\\LogContainers"
+            }
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "preferred-install": "dist"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
